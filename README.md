@@ -14,7 +14,7 @@ We decided to use a Pipeline that used a DecisionTreeClassifier as our final mod
 
 The hyperparameters we used were max_depth, which puts a bound to the depth of the tree, meaning that the depth can't be any more than max_depth, as well as min_samples_split, which is the minimum number of samples needed in order for one node to split into two. We wanted to tune these hyperparameters because of the fact that they do indeed change what the DecisionTreeClassifier will look like. Some combination of hyperparameters may even limit even the positions we can output since there are 5 outputs and a max_depth of 2 would only less us return a maximum of 4 types of positions. To find the best combination of hyperparameters, we decided to use GridSearchCV to go through all the combinations of the hyperparameters. In this case, we were going with the Pipeline with the DecisionTreeClassifier model so we were more focused on finding the best pair of hyperparameters than on finding a different model. 
 
-Our final model, fitted on the same training set as the baseline model and evaluated on the same testing set had a mean accuracy of around 94.3%. That's a huge improvement from our baseline model which had a mean accuracy of around 52.1%. This is likely do to the fact that we used more features and better features. If we checked the percentage of how many of each position was correctly guessed, we could see a noticeable difference. Here's is how our Final Model performed on the testing dataset. 
+Our final model, fitted on the same training set as the baseline model and evaluated on the same testing set had a mean accuracy of around 94.3%. That's a huge improvement from our baseline model which had a mean accuracy of around 52.1%. This is likely do to the fact that we used more features and better features, making it a better model than our baseline model which only used two features. If we checked the percentage of how many of each position was correctly guessed, we could see a noticeable difference. Here's is how our Final Model performed on the testing dataset. 
 | position   |        0 |
 |:-----------|---------:|
 | bot        | 0.944533 |
@@ -26,6 +26,8 @@ Our final model, fitted on the same training set as the baseline model and evalu
 In order to perform a “fairness analysis” of our final model from the previous step, we decided to compare our model’s predictions on the type of ‘league’ to see if there was a significant difference in mean accuracy between the two leagues that we chose. The two leagues that we decided to compare were the ‘LPL’ and ‘LCK CL’. The question that we want to answer through doing this process is: does our model perform worse for individuals in one group (LCK CL or LPL) than it does for individuals in the other group (LCK CL or LPL)? 
 To compare our model’s fairness between these two groups, we decided to compare their accuracies. Since we want to compare the difference between two samples in distribution, we used a permutation test to figure this out. 
 The null hypothesis for our test is: Our model is fair, Its accuracy for predicting ‘position’ for groups in the ‘LCK CL’ and the ‘LPL’ are the same.
-The alternative hypothesis for our test is: Our model is not fair, Its accuracy for predicting ‘position’ for groups in the ‘LCK CL’ and the ‘LPL’ are not the same.
+The alternative hypothesis for our test is: Our model is not fair, Its accuracy for predicting ‘position’ for groups in the leagues ‘LCK CL’ and the ‘LPL’ are not the same.
+Before completing the permutation test, we calculated that our observed statistic was 0.0008124410689606121. After completing
+the permutation test with 1000 runs, we got a p-value of 
 
 
