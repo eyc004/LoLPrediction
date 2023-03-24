@@ -1,5 +1,5 @@
 # League of Legends Position Prediction Model
-### Here's our exploratory data analysis on this dataset: https://eyc004.github.io/LoLAnalysis/
+### Here's our exploratory data analysis on this dataset: [https://eyc004.github.io/LoLAnalysis/]
 ## Framing the Problem
 For this project, we will continue to use the League of Legends dataset. The prediction problem that we will be answering for this project is given a player's post-game data, predict their position. To answer this question we are going to be using multiclass classification. Our response variable is going to be the ‘position’ as this tells us if our model predicts correctly. We chose this because we are trying to do a classification problem and we thought it would be interesting to see if there were certain characteristics of a player who plays a certain position and what their stats would be like. The classes that we will be predicting are: ‘top’, ‘jng’, ‘mid’, ‘bot’, and ‘sup’. For this model, we will be evaluating it by using accuracy. Accuracy best describes our data because it would be the most useful in explaining how close we were to the true position. It would tell us exactly how many of those positions we correctly predict. Using the accuracy would be better than using F1-score, precision, or recall because it better encapsulates and represents the data as a whole. The other three error methods we may have chosen are better for data that is binary in its classification as they use false negatives, false positives, true negatives, and true positives. However, in our case, since we're doing a multiclassification problem, False Positive and many other elements that are used in recall, precision, and F1 do not make very much sense here. Since we are given post-game data, we are free to use all the columns to help us with our prediction, except for using the position column since that's what we're trying to predict, since we know all that statistics up front before we make some prediction. 
 
@@ -17,8 +17,6 @@ The hyperparameters we used were max_depth, which puts a bound to the depth of t
 
 Our final model, fitted on the same training set as the baseline model and evaluated on the same testing set had a mean accuracy of around 94.3%. That's a huge improvement from our baseline model which had a mean accuracy of around 52.1%. This is likely do to the fact that we used more features and better features, making it a better model than our baseline model which only used two features. If we checked the percentage of how many of each position was correctly guessed, we could see a noticeable difference. Here's is how our Final Model performed on the testing dataset. 
 
-| position   |        0 |
-|:-----------|---------:|
 | bot        | 0.944533 |
 | jng        | 0.995524 |
 | mid        | 0.891535 |
@@ -32,4 +30,5 @@ The alternative hypothesis for our test is: Our model is not fair, Its accuracy 
 Before completing the permutation test, we calculated that our observed statistic was 0.0008124410689606121. After completing
 the permutation test with 1000 runs, we got a p-value of 
 
+We fail to reject the null hypothesis, which means 
 
