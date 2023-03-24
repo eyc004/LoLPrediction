@@ -27,8 +27,8 @@ In order to perform a “fairness analysis” of our final model from the previo
 To compare our model’s fairness between these two groups, we decided to compare their accuracies. Since we want to compare the difference between two samples in distribution, we used a permutation test to figure this out. 
 The null hypothesis for our test is: Our model is fair, Its accuracy for predicting ‘position’ for groups in the ‘LCK CL’ and the ‘LPL’ are the same.
 The alternative hypothesis for our test is: Our model is not fair, Its accuracy for predicting ‘position’ for groups in the leagues ‘LCK CL’ and the ‘LPL’ are not the same.
-Before completing the permutation test, we calculated that our observed statistic was 0.0008124410689606121. After completing
-the permutation test with 1000 runs, we got a p-value of 
+Our significance level is 0.05. Before completing the permutation test, we calculated that our observed statistic was 0.0008124410689606121. After completing the permutation test with 1000 runs, we got a p-value of 0.809.
 
-We fail to reject the null hypothesis, which means 
+We fail to reject the null hypothesis, because .809 is greater than our significance level of 0.05, we fail to reject the null hypothesis. This means that we do not have significant evidence that there is a difference in mean accuracy for prediction for LCK CL and LPL. 
+<iframe src="assets/final_model_mean_accuracy.html" width=800 height=600 frameBorder=0></iframe>
 
