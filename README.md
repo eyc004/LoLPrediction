@@ -1,4 +1,4 @@
-# League of Legends Position Prediction Model
+# Gregory Learns About Predicting League of Legends Positions and Eric Learns About League of Legends
 #### by Eric Chen and Gregory Quach
 #### Here's  our exploratory data analysis on this dataset: [https://eyc004.github.io/LoLAnalysis/](https://eyc004.github.io/LoLAnalysis/)
 ## Framing the Problem
